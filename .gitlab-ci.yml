@@ -1,0 +1,40 @@
+default:
+  image: node:17.2.0
+  before_script:
+    - yarn install
+    - cd client
+    - yarn install
+    - cd ../server
+    - yarn install
+    - cd ..
+
+stages:
+  - test
+  - build
+
+lint-frontend:
+  stage: test
+  script:
+    - echo "Linting frontend..."
+    - cd client
+    - yarn lint
+    - cd ..
+    - echo "Done!"
+
+lint-backend:
+  stage: test
+  script:
+    - echo "Linting backend..."
+    - cd server
+    - yarn lint
+    - cd ..
+    - echo "Done!"
+
+build-frontend:
+  stage: build
+  script:
+    - echo "Building frontend..."
+    - cd client
+    - yarn build
+    - cd ..
+    - echo "Done!"
