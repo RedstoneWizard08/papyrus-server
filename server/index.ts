@@ -16,5 +16,5 @@ const io = new Server(servlet);
 
 
 servlet.listen(port, () => {
-    console.log(`App listening on port ${port} (Frontend on port ${frontendPort}).`);
+    console.log(`⚡️ [server] App listening on port ${port} (Frontend on port ${frontendPort}).`);
 });
