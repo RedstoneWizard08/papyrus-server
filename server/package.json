@@ -1,0 +1,21 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Papyrus v6: Instant messaging - done right.",
+  "main": "index.js",
+  "repository": "https://git.nosadnile.net/RedstoneWizard08/papyrus-v6.git",
+  "author": "Jacob Sapoznikow <jacob1coder@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-http-proxy": "^1.6.3",
+    "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
+    "path": "^0.12.7",
+    "socket.io": "^4.4.0"
+  }
+}
