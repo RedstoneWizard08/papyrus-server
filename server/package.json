@@ -17,5 +17,10 @@
     "http": "^0.0.1-security",
     "path": "^0.12.7",
     "socket.io": "^4.4.0"
+  },
+  "scripts": {
+    "lint": "",
+    "start": "node index.js",
+    "test": "nodemon index.js"
   }
 }
