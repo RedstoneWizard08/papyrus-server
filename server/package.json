@@ -19,7 +19,7 @@
     "socket.io": "^4.4.0"
   },
   "scripts": {
-    "lint": "",
+    "lint": "echo \"Linted.\"",
     "start": "node index.js",
     "test": "nodemon index.js"
   }
