@@ -1,0 +1,19 @@
+{
+  "name": "papyrus-v6",
+  "version": "1.0.0",
+  "description": "Papyrus v6: Instant messaging - done right.",
+  "main": "index.js",
+  "repository": "https://git.nosadnile.net/RedstoneWizard08/papyrus-v6.git",
+  "author": "Jacob Sapoznikow <jacob1coder@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "concurrently": "^6.4.0"
+  },
+  "scripts": {
+    "start": "concurrently \"cd client && yarn start\" \"cd server && yarn start\"",
+    "test": "concurrently \"cd client && yarn dev\" \"cd server && yarn test\"",
+    "lint": "concurrently \"cd client && yarn lint\" \"cd server && yarn lint\"",
+    "build": "cd client && yarn build && cd ../server && yarn build"
+  }
+}

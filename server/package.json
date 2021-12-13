@@ -29,6 +29,7 @@
   "scripts": {
     "lint": "eslint . --ext .ts",
     "start": "node index.ts",
-    "test": "nodemon index.ts"
+    "test": "nodemon index.ts",
+    "build": "tsc --project ./tsconfig.json"
   }
 }

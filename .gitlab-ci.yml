@@ -36,5 +36,28 @@ build-frontend:
     - echo "Building frontend..."
     - cd client
     - yarn build
+    - apt update
+    - apt -y install zip unzip
+    - zip -r frontend-build-$CI_PIPELINE_ID.zip .next
     - cd ..
     - echo "Done!"
+  artifacts:
+    paths:
+      - client/frontend-build-*.zip
+
+build-backend:
+  stage: build
+  script:
+    - echo "Building backend..."
+    - cd server
+    - mkdir dist
+    - yarn build
+    - apt update
+    - apt -y install zip unzip
+    - zip -r backend-build-$CI_PIPELINE_ID.zip dist
+    - rm -rf dist
+    - cd ..
+    - echo "Done!"
+  artifacts:
+    paths:
+      - server/backend-build-*.zip
