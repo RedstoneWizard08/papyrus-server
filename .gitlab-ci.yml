@@ -6,6 +6,8 @@ default:
     - yarn install
     - cd ../server
     - yarn install
+    - cd ../api
+    - yarn install
     - cd ..
 
 stages:
@@ -31,6 +33,16 @@ lint-backend:
     - echo "Done!"
   needs: ["lint-frontend"]
 
+lint-api:
+  stage: test
+  script:
+    - echo "Linting API..."
+    - cd api
+    - yarn lint
+    - cd ..
+    - echo "Done!"
+  needs: ["lint-backend"]
+
 build-frontend:
   stage: build
   script:
@@ -39,7 +51,7 @@ build-frontend:
     - yarn build
     - apt update
     - apt -y install zip unzip
-    - zip -r frontend-build-$CI_PIPELINE_ID.zip .next
+    - zip -r frontend-build-$CI_PIPELINE_ID.zip out/* out/.*
     - cd ..
     - echo "Done!"
 #  artifacts:
@@ -64,3 +76,21 @@ build-backend:
 #    paths:
 #      - server/backend-build-*.zip
   needs: ["build-frontend"]
+
+build-api:
+  stage: build
+  script:
+    - echo "Building API..."
+    - cd api
+    - mkdir dist
+    - yarn build
+    - apt update
+    - apt -y install zip unzip
+    - zip -r api-build-$CI_PIPELINE_ID.zip dist
+    - rm -rf dist
+    - cd ..
+    - echo "Done!"
+#  artifacts:
+#    paths:
+#      - server/api-build-*.zip
+  needs: ["build-backend"]

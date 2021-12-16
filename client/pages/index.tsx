@@ -4,10 +4,10 @@ import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import io from 'socket.io-client';
 import Link from 'next/link';
-
-const socket = io();
+import React from 'react';
 
 const Home: NextPage = () => {
+  React.useEffect(() => { window.location.replace("/app"); });
   return (
     <div className={styles.container}>
       <Head>
@@ -17,7 +17,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <Link href="/help">HELP</Link>
+        <div className={styles.loader} />
       </main>
     </div>
   );

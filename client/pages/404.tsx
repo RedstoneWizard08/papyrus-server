@@ -13,8 +13,8 @@ const Error404: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <p>404 | The page you requested could not be found.</p>
-        <Link href="/">Back to Home</Link>
+        <p className={styles.error}>404 | The page you requested could not be found.</p>
+        <Link href="/" passHref><p className={styles.error}>Back to Home</p></Link>
       </main>
     </div>
   );

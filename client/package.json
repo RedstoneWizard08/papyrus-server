@@ -8,13 +8,19 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "dev": "next dev -p 8901",
-    "build": "next build",
-    "start": "next start -p 8901",
+    "dev": "next dev -p 4201",
+    "build": "next build && next export",
+    "start": "next start -p 4201",
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/react-refresh-utils": "^12.0.7",
+    "axios": "^0.24.0",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-svgo": "^10.0.0",
     "next": "12.0.7",
+    "next-optimized-images": "^2.6.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "socket.io-client": "^4.4.0"
