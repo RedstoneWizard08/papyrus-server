@@ -15,10 +15,6 @@ const version = {
     typescript: "4.5.2",
 };
 
-interface LooseObject {
-    [key: string]: any
-}
-
 const app = express();
 const port = process.env.PORT || 4202;
 
