@@ -51,7 +51,7 @@ build-frontend:
     - yarn build
     - apt update
     - apt -y install zip unzip
-    - zip -r frontend-build-$CI_PIPELINE_ID.zip out/* out/.*
+    - zip -r frontend-build-$CI_PIPELINE_ID.zip out
     - cd ..
     - echo "Done!"
 #  artifacts:
