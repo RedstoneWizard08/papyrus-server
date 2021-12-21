@@ -31,7 +31,6 @@ lint-backend:
     - yarn lint
     - cd ..
     - echo "Done!"
-  needs: ["lint-frontend"]
 
 lint-api:
   stage: test
@@ -41,7 +40,6 @@ lint-api:
     - yarn lint
     - cd ..
     - echo "Done!"
-  needs: ["lint-backend"]
 
 build-frontend:
   stage: build
@@ -54,10 +52,10 @@ build-frontend:
     - zip -r frontend-build-$CI_PIPELINE_ID.zip out
     - cd ..
     - echo "Done!"
-#  artifacts:
-#    paths:
-#      - client/frontend-build-*.zip
-  needs: ["lint-backend"]
+  artifacts:
+    paths:
+      - client/frontend-build-*.zip
+  needs: ["lint-frontend"]
 
 build-backend:
   stage: build
@@ -72,10 +70,10 @@ build-backend:
     - rm -rf dist
     - cd ..
     - echo "Done!"
-#  artifacts:
-#    paths:
-#      - server/backend-build-*.zip
-  needs: ["build-frontend"]
+  artifacts:
+    paths:
+      - server/backend-build-*.zip
+  needs: ["lint-backend"]
 
 build-api:
   stage: build
@@ -90,7 +88,7 @@ build-api:
     - rm -rf dist
     - cd ..
     - echo "Done!"
-#  artifacts:
-#    paths:
-#      - server/api-build-*.zip
-  needs: ["build-backend"]
+  artifacts:
+    paths:
+      - server/api-build-*.zip
+  needs: ["lint-api"]
