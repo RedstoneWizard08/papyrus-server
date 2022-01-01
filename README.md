@@ -1,5 +1,6 @@
-# Papyrus v6
+# Papyrus
 ### Instant messaging - done right.
+-- Revision 6 --
 
 ---------
 Table of Contents
@@ -9,7 +10,7 @@ Table of Contents
 ---------
 
 ## About
-Papyrus v6 is an open-source alternative/clone of Discord that is made to allow you to have a secure and fun chat experience. Complete with voice/video communication, emojis, gifs, and so much more, it brings the whole Discord experience right to your server.
+Papyrus is an open-source alternative/clone of Discord that is made to allow you to have a secure and fun chat experience. Complete with voice/video communication, emojis, gifs, and so much more, it brings the whole Discord experience right to your server.
 
 ## Installation
 Steps to come. Stay tuned!
