@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Papyrus v6: Instant messaging - done right.",
   "main": "index.js",
-  "repository": "https://git.nosadnile.net/RedstoneWizard08/papyrus-v6.git",
+  "repository": "https://git.nosadnile.net/papyrus/papyrus-v6.git",
   "author": "Jacob Sapoznikow <jacob1coder@gmail.com>",
   "license": "MIT",
   "private": false,

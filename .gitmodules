@@ -1,0 +1,3 @@
+[submodule "papyrus.js"]
+	path = papyrus.js
+	url = https://git.nosadnile.net/papyrus/papyrus.js

@@ -7,7 +7,6 @@ import Link from 'next/link';
 import React from 'react';
 
 const Home: NextPage = () => {
-  React.useEffect(() => { window.location.replace("/app"); });
   return (
     <div className={styles.container}>
       <Head>

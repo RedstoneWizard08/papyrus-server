@@ -25,16 +25,16 @@ mongoose.connect("mongodb://localhost:27017/papyrus_v6_testing", {}, async (err)
     } else {
         console.log("Connected to database!");
         await import("./database/models/UserData");
-        io.on("connection", (socket) => {
+        io.on("connection", async (socket) => {
             console.log(`${socket.id} | Client connected!    | { id: ${socket.id}, ip: ${socket.handshake.address} }`);
-            socket.on("request_data", () => {
+            socket.on("request_data", async () => {
                 const id = "61ba64ed142ea93ba3343990";
-                mongoose.model("PRS_UserData").findById(id, (err: string, doc: string) => {
+                mongoose.model("PRS_UserData").findById(id, async (err: string, doc: string) => {
                     if(err) return console.error(err);
                     socket.emit("initialUserData", doc);
                 });
             });
-            socket.on("disconnect", () => {
+            socket.on("disconnect", async () => {
                 console.log(`${socket.id} | Client disconnected! | { id: ${socket.id}, ip: ${socket.handshake.address} }`);
             });
         });
@@ -44,7 +44,7 @@ mongoose.connect("mongodb://localhost:27017/papyrus_v6_testing", {}, async (err)
 
         app.get("/*", frontend);
     }
-    servlet.listen(port, () => {
+    servlet.listen(port, async () => {
         console.log(`⚡️ [server] App listening on port ${port} (Frontend on port ${frontendPort}, API on port ${apiPort}).`);
     });
 });

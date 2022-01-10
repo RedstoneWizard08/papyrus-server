@@ -54,8 +54,10 @@ const Home: NextPage = () => {
     var [ loading, setLoading ] = React.useState(true);
     socket.on("initialUserData", (data) => {
         userData = data;
-        if(!userData.avatar || userData.avatar.toLowerCase() == "none" || userData.avatar.toLowerCase() == "false" || userData.avatar.toLowerCase() == "null") {
-            userData.avatar = userData.username?.charAt(0);
+        if(userData) {
+            if(!userData.avatar || userData.avatar.toLowerCase() == "none" || userData.avatar.toLowerCase() == "false" || userData.avatar.toLowerCase() == "null") {
+                userData.avatar = userData.username?.charAt(0);
+            }
         }
         setLoading(false);
     });
@@ -77,7 +79,17 @@ const Home: NextPage = () => {
                 loading ? (
                     <div className={styles.loader} />
                 ) : (
-                    <h1 style={{ color: "white", display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center" }}>Welcome back,&nbsp;<img src={`https://ui-avatars.com/api/?background=ff0000&color=ffffff&name=${userData.avatar}&format=svg&rounded=true&size=40&bold=true`} alt="Profile Picture" width={40} height={40} className={styles.ppic} />&nbsp;{userData.username}.</h1>
+                    <h1 style={{ color: "white", display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center" }}>{
+                        userData ? (
+                            <>
+                                Welcome back,&nbsp;<img src={`https://ui-avatars.com/api/?background=ff0000&color=ffffff&name=${userData.avatar}&format=svg&rounded=true&size=40&bold=true`} alt="Profile Picture" width={40} height={40} className={styles.ppic} />&nbsp;{userData.username}.
+                            </>
+                        ) : (
+                            <>
+                                Uh-oh! Your profile couldn't be found!
+                            </>
+                        )
+                    }</h1>
                 )
             }
         </main>
